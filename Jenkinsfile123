@@ -27,10 +27,21 @@ pipeline {
 
         stage ('Integration Test maven') {
 
-            steps{
+            steps {
+                scripts {
                 mvnIntegrationTest()
-            }            
+            } 
+        }
             
         }
+
+    stage ('Static Code Analysis') {
+        steps {
+
+            sh " mvn clean package sonar:soanr"
+        }
+
     }
+
+}
 }
