@@ -1,0 +1,14 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        steps {
+            script {
+               git branch: 'main', url: 'https://github.com/sandeep-kengal/mrdevops_java_app.git'
+            }
+
+        }
+    }
+}
