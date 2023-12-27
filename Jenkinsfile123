@@ -37,10 +37,10 @@ pipeline {
 
     stage ('Static Code Analysis') {
         steps {
-
+            withSonarQubeEnv(credentialsId: 'sonar-qpi') {
             sh " mvn clean package sonar:soanr"
         }
-
+       }
     }
 
 }
